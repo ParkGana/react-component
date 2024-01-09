@@ -9,7 +9,7 @@ export function CheckboxPage() {
     return (
         <Box title={'CHECKBOX'}>
             <CheckboxPageStyle.Container>
-                {['글램핑', '노지', '오토', '카라반'].map((item, index) => (
+                {['글램핑', '오토', '카라반'].map((item, index) => (
                     <Checkbox
                         key={index}
                         selected={datas.values.includes(item)}

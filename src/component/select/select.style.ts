@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export namespace SelectStyle {
     export const Container = styled.div`
         ${({ theme }) => `
-            width: 300px;
+            width: 250px;
             position: relative;
             display: grid;
             grid-template-columns: auto 14px;
