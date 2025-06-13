@@ -4,11 +4,13 @@ import PasswordField from '../components/PasswordField';
 import TextareaField from '../components/TextareaField';
 import Checkbox from '../components/Checkbox';
 import Radio from '../components/Radio';
+import Selectbox from '../components/Selectbox';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
   const [passwordField, setPasswordField] = useState<string>('');
   const [radio, setRadio] = useState<string>('');
+  const [selectbox, setSelectbox] = useState<string>('');
   const [textField, setTextField] = useState<string>('');
   const [textareaField, setTextareaField] = useState<string>('');
 
@@ -32,6 +34,13 @@ const HomePage = () => {
       />
 
       <Radio value={radio} options={['A', 'B', 'C', 'D']} handleSelect={setRadio} />
+
+      <Selectbox
+        value={selectbox}
+        options={['A', 'B', 'C', 'D']}
+        placeholder="옵션을 선택해 주세요."
+        handleSelect={setSelectbox}
+      />
 
       <TextField
         value={textField}
