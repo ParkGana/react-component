@@ -5,6 +5,7 @@ import TextareaField from '../components/TextareaField';
 import Checkbox from '../components/Checkbox';
 import Radio from '../components/Radio';
 import Selectbox from '../components/Selectbox';
+import ToggleButton from '../components/ToggleButton';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -13,6 +14,7 @@ const HomePage = () => {
   const [selectbox, setSelectbox] = useState<string>('');
   const [textField, setTextField] = useState<string>('');
   const [textareaField, setTextareaField] = useState<string>('');
+  const [toggleButton, setToggleButton] = useState<'on' | 'off'>('on');
 
   const handleKeyDown = (value: string) => {
     window.alert(`value : ${value}`);
@@ -55,6 +57,8 @@ const HomePage = () => {
         placeholder="내용을 입력해 주세요."
         handleChange={setTextareaField}
       />
+
+      <ToggleButton value={toggleButton} handleToggle={setToggleButton} />
     </>
   );
 };
