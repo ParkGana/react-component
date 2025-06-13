@@ -1,4 +1,4 @@
-import ComponentContainer from './layout/ComponentContainer';
+import ComponentContainer from '../layout/ComponentContainer';
 import clsx from 'clsx';
 
 type ToggleButtonProps = {

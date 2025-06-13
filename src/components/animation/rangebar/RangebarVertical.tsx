@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import ComponentContainer from './layout/ComponentContainer';
+import ComponentContainer from '../../layout/ComponentContainer';
 
 type RangebarVerticalProps = {
   range: { min: number; max: number };

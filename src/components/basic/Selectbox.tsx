@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import ComponentContainer from './layout/ComponentContainer';
+import ComponentContainer from '../layout/ComponentContainer';
 import clsx from 'clsx';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa6';
 

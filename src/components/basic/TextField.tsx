@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import ComponentContainer from './layout/ComponentContainer';
+import ComponentContainer from '../layout/ComponentContainer';
 
 type TextFieldProps = {
   value: string;

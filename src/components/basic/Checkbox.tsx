@@ -1,30 +1,26 @@
 import React from 'react';
-import { MdOutlineRadioButtonChecked, MdOutlineRadioButtonUnchecked } from 'react-icons/md';
-import ComponentContainer from './layout/ComponentContainer';
+import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
+import ComponentContainer from '../layout/ComponentContainer';
 
-type RadioProps = {
-  value: string;
+type CheckboxProps = {
+  values: string[];
   options: string[];
   handleSelect: (value: string) => void;
 };
 
-const Radio = ({ value, options, handleSelect }: RadioProps) => {
+const Checkbox = ({ values, options, handleSelect }: CheckboxProps) => {
   return (
-    <ComponentContainer label="RADIO">
+    <ComponentContainer label="CHECKBOX">
       <div className="flex flex-wrap items-center justify-center gap-4">
         {options.map((option) => (
           <React.Fragment key={option}>
-            <input className="hidden" type="radio" />
+            <input className="hidden" type="checkbox" />
             <label
               className="flex items-center gap-1 cursor-pointer"
               htmlFor={option}
               onClick={() => handleSelect(option)}
             >
-              {value === option ? (
-                <MdOutlineRadioButtonChecked size={20} />
-              ) : (
-                <MdOutlineRadioButtonUnchecked size={20} />
-              )}
+              {values.includes(option) ? <MdCheckBox size={20} /> : <MdCheckBoxOutlineBlank size={20} />}
               <p className="text-body">{option}</p>
             </label>
           </React.Fragment>
@@ -34,4 +30,4 @@ const Radio = ({ value, options, handleSelect }: RadioProps) => {
   );
 };
 
-export default Radio;
+export default Checkbox;

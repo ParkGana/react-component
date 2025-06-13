@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ComponentContainer from './layout/ComponentContainer';
+import ComponentContainer from '../layout/ComponentContainer';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
 import clsx from 'clsx';
 

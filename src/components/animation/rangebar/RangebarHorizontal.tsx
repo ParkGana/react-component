@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import ComponentContainer from './layout/ComponentContainer';
+import ComponentContainer from '../../layout/ComponentContainer';
 
 type RangebarHorizontalProps = {
   range: { min: number; max: number };
