@@ -2,8 +2,10 @@ import { useState } from 'react';
 import TextField from '../components/TextField';
 import PasswordField from '../components/PasswordField';
 import TextareaField from '../components/TextareaField';
+import Checkbox from '../components/Checkbox';
 
 const HomePage = () => {
+  const [checkbox, setCheckbox] = useState<string[]>([]);
   const [passwordField, setPasswordField] = useState<string>('');
   const [textField, setTextField] = useState<string>('');
   const [textareaField, setTextareaField] = useState<string>('');
@@ -12,8 +14,14 @@ const HomePage = () => {
     window.alert(`value : ${value}`);
   };
 
+  const handleCheckbox = (value: string) => {
+    setCheckbox(checkbox.includes(value) ? checkbox.filter((item: any) => item !== value) : [...checkbox, value]);
+  };
+
   return (
     <>
+      <Checkbox values={checkbox} options={['A', 'B', 'C', 'D']} handleSelect={handleCheckbox} />
+
       <PasswordField
         value={passwordField}
         placeholder="비밀번호를 입력해 주세요."
