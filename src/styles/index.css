@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: Pretendard;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--gray-900);
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
