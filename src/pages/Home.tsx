@@ -3,10 +3,12 @@ import TextField from '../components/TextField';
 import PasswordField from '../components/PasswordField';
 import TextareaField from '../components/TextareaField';
 import Checkbox from '../components/Checkbox';
+import Radio from '../components/Radio';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
   const [passwordField, setPasswordField] = useState<string>('');
+  const [radio, setRadio] = useState<string>('');
   const [textField, setTextField] = useState<string>('');
   const [textareaField, setTextareaField] = useState<string>('');
 
@@ -28,6 +30,8 @@ const HomePage = () => {
         handleChange={setPasswordField}
         handleKeyDown={handleKeyDown}
       />
+
+      <Radio value={radio} options={['A', 'B', 'C', 'D']} handleSelect={setRadio} />
 
       <TextField
         value={textField}
