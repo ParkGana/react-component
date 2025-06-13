@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import TextField from '../components/TextField';
 import PasswordField from '../components/PasswordField';
+import TextareaField from '../components/TextareaField';
 
 const HomePage = () => {
   const [passwordField, setPasswordField] = useState<string>('');
   const [textField, setTextField] = useState<string>('');
+  const [textareaField, setTextareaField] = useState<string>('');
 
   const handleKeyDown = (value: string) => {
     window.alert(`value : ${value}`);
@@ -24,6 +26,13 @@ const HomePage = () => {
         placeholder="값을 입력해 주세요."
         handleChange={setTextField}
         handleKeyDown={handleKeyDown}
+      />
+
+      <TextareaField
+        rowCount={2}
+        value={textareaField}
+        placeholder="내용을 입력해 주세요."
+        handleChange={setTextareaField}
       />
     </>
   );
