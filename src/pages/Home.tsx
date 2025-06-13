@@ -6,6 +6,8 @@ import Checkbox from '../components/Checkbox';
 import Radio from '../components/Radio';
 import Selectbox from '../components/Selectbox';
 import ToggleButton from '../components/ToggleButton';
+import RangebarVertical from '../components/RangebarVertical';
+import RangebarHorizontal from '../components/RangebarHorizontal';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -15,6 +17,11 @@ const HomePage = () => {
   const [textField, setTextField] = useState<string>('');
   const [textareaField, setTextareaField] = useState<string>('');
   const [toggleButton, setToggleButton] = useState<'on' | 'off'>('on');
+
+  const [rangebarHorizontalMin, setRangebarHorizontalMin] = useState<number>(20);
+  const [rangebarHorizontalMax, setRangebarHorizontalMax] = useState<number>(80);
+  const [rangebarVerticalMin, setRangebarVerticalMin] = useState<number>(20);
+  const [rangebarVerticalMax, setRangebarVerticalMax] = useState<number>(80);
 
   const handleKeyDown = (value: string) => {
     window.alert(`value : ${value}`);
@@ -36,6 +43,22 @@ const HomePage = () => {
       />
 
       <Radio value={radio} options={['A', 'B', 'C', 'D']} handleSelect={setRadio} />
+
+      <RangebarHorizontal
+        range={{ min: 0, max: 100 }}
+        value={{ min: rangebarHorizontalMin, max: rangebarHorizontalMax }}
+        step={20}
+        handleMinChange={setRangebarHorizontalMin}
+        handleMaxChange={setRangebarHorizontalMax}
+      />
+
+      <RangebarVertical
+        range={{ min: 0, max: 100 }}
+        value={{ min: rangebarVerticalMin, max: rangebarVerticalMax }}
+        step={20}
+        handleMinChange={setRangebarVerticalMin}
+        handleMaxChange={setRangebarVerticalMax}
+      />
 
       <Selectbox
         value={selectbox}
