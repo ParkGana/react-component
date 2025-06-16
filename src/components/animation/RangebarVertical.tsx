@@ -45,7 +45,7 @@ const RangebarVertical = ({ range, value, step, handleMinChange, handleMaxChange
 
   return (
     <ComponentContainer label="RANGE BAR (V)">
-      <div className="w-fit px-1 py-4 mx-auto">
+      <div className="w-fit h-full px-1 py-4 mx-auto">
         <div ref={rangeRef} className="relative w-6 h-full min-h-[200px] bg-gray-200 rounded-full">
           <div
             className="absolute w-full bg-gray-900"
