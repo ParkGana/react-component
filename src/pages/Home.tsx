@@ -11,6 +11,7 @@ import RangebarHorizontal from '../components/animation/RangebarHorizontal';
 import CategoryContainer from '../components/layout/CategoryContainer';
 import SortableList from '../components/animation/SortableList';
 import SwitchSection from '../components/animation/SwitchSection';
+import ImagePuzzle from '../components/animation/ImagePuzzle';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -77,6 +78,8 @@ const HomePage = () => {
       </CategoryContainer>
 
       <CategoryContainer category="ANIMATION">
+        <ImagePuzzle size={2} />
+
         <RangebarHorizontal
           range={{ min: 0, max: 100 }}
           value={{ min: rangebarHorizontalMin, max: rangebarHorizontalMax }}
