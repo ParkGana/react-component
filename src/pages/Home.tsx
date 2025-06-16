@@ -6,8 +6,8 @@ import Checkbox from '../components/basic/Checkbox';
 import Radio from '../components/basic/Radio';
 import Selectbox from '../components/basic/Selectbox';
 import ToggleButton from '../components/basic/ToggleButton';
-import RangebarVertical from '../components/animation/rangebar/RangebarVertical';
-import RangebarHorizontal from '../components/animation/rangebar/RangebarHorizontal';
+import RangebarVertical from '../components/animation/RangebarVertical';
+import RangebarHorizontal from '../components/animation/RangebarHorizontal';
 import CategoryContainer from '../components/layout/CategoryContainer';
 import SortableList from '../components/animation/SortableList';
 
