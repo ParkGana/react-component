@@ -12,8 +12,10 @@ type RangebarVerticalProps = {
 const RangebarVertical = ({ range, value, step, handleMinChange, handleMaxChange }: RangebarVerticalProps) => {
   const rangeRef = useRef<HTMLDivElement>(null);
 
-  const calculatePercent = (value: number) => ((value - range.min) / (range.max - range.min)) * 100;
+  const minPercent = ((value.min - range.min) / (range.max - range.min)) * 100;
+  const maxPercent = ((value.max - range.min) / (range.max - range.min)) * 100;
 
+  /* 마우스 이벤트 */
   const handleMouseDown = (type: 'min' | 'max') => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!rangeRef.current) return;
@@ -40,13 +42,10 @@ const RangebarVertical = ({ range, value, step, handleMinChange, handleMaxChange
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  const minPercent = calculatePercent(value.min);
-  const maxPercent = calculatePercent(value.max);
-
   return (
     <ComponentContainer label="RANGE BAR (V)">
       <div className="w-fit h-full px-1 py-4 mx-auto">
-        <div ref={rangeRef} className="relative w-6 h-full min-h-[200px] bg-gray-200 rounded-full">
+        <div ref={rangeRef} className="relative w-6 h-full min-h-[200px] rounded-full bg-gray-200">
           <div
             className="absolute w-full bg-gray-900"
             style={{ top: `${100 - maxPercent}%`, height: `${maxPercent - minPercent}%` }}

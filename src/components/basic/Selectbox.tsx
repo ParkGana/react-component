@@ -35,7 +35,7 @@ const Selectbox = ({ value, options, placeholder, handleSelect }: SelectboxProps
 
   return (
     <ComponentContainer label="SELECTBOX">
-      <div ref={selectboxRef} className="w-full relative">
+      <div ref={selectboxRef} className="relative w-full">
         <div
           className={clsx(
             'flex items-center justify-between gap-1 rounded-md border-2 border-gray-400 p-3 cursor-pointer',

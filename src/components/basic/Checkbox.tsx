@@ -14,10 +14,10 @@ const Checkbox = ({ values, options, handleSelect }: CheckboxProps) => {
       <div className="flex flex-wrap items-center justify-center gap-4">
         {options.map((option) => (
           <React.Fragment key={option}>
-            <input className="hidden" type="checkbox" />
+            <input type="checkbox" className="hidden" />
             <label
-              className="flex items-center gap-1 cursor-pointer"
               htmlFor={option}
+              className="flex items-center gap-1 cursor-pointer"
               onClick={() => handleSelect(option)}
             >
               {values.includes(option) ? <MdCheckBox size={20} /> : <MdCheckBoxOutlineBlank size={20} />}

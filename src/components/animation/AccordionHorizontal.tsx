@@ -15,7 +15,16 @@ const AccordionHorizontal = ({ data }: AccordionHorizontalProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentsRef = useRef<HTMLDivElement[]>([]);
 
-  /* 마우스 Enter 이벤트 */
+  /* 마우스 Leave 이벤트 (Container) */
+  const handleLeaveContainer = () => {
+    setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.style.gridTemplateColumns = `repeat(${data.length}, 1fr)`;
+      }
+    }, 500);
+  };
+
+  /* 마우스 Enter 이벤트 (Item) */
   const handleEnterItem = (index: number) => {
     const ratio = data.map((_, idx) => (idx === index ? '1fr' : 'fit-content(300px)'));
 
@@ -26,22 +35,13 @@ const AccordionHorizontal = ({ data }: AccordionHorizontalProps) => {
     }
   };
 
-  /* 마우스 Leave 이벤트 */
+  /* 마우스 Leave 이벤트 (Item) */
   const handleLeaveItem = (index: number) => {
     if (contentsRef.current) {
       setTimeout(() => {
         contentsRef.current[index].style.display = 'none';
       }, 500);
     }
-  };
-
-  /* 마우스 Leave 이벤트 (Container) */
-  const handleLeaveContainer = () => {
-    setTimeout(() => {
-      if (containerRef.current) {
-        containerRef.current.style.gridTemplateColumns = `repeat(${data.length}, 1fr)`;
-      }
-    }, 500);
   };
 
   return (

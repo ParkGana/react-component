@@ -11,7 +11,9 @@ type TextFieldProps = {
 const TextField = ({ value, placeholder, handleChange, handleKeyDown }: TextFieldProps) => {
   /* Enter 키 입력 */
   const handlePressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.key === 'Enter' && handleKeyDown(value);
+    if (e.key === 'Enter') {
+      handleKeyDown(value);
+    }
   };
 
   return (

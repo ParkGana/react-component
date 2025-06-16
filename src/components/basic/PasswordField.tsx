@@ -15,18 +15,20 @@ const PasswordField = ({ value, placeholder, handleChange, handleKeyDown }: Pass
 
   /* Enter 키 입력 */
   const handlePressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.key === 'Enter' && handleKeyDown(value);
+    if (e.key === 'Enter') {
+      handleKeyDown(value);
+    }
   };
 
   return (
     <ComponentContainer label="PASSWORD FIELD">
       <div className="relative w-full">
         <input
+          type={isVisibleValue ? 'text' : 'password'}
           className={clsx(
             'w-full text-body rounded-md border-2 border-gray-400 p-3 pr-10',
             'focus:border-gray-900 focus:outline-none'
           )}
-          type={isVisibleValue ? 'text' : 'password'}
           value={value}
           placeholder={placeholder}
           autoComplete="off"

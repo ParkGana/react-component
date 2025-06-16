@@ -38,6 +38,7 @@ const SortableCard = ({ data }: { data: CardType }) => {
 const SortableList = ({ data, handleSort }: SortableListProps) => {
   const sensors = useSensors(useSensor(PointerSensor));
 
+  /* 마우스 Drag 이벤트 */
   const handleDragEnd = ({ active, over }: DragEndEvent) => {
     if (over && active.id !== over.id) {
       const oldIndex = data.findIndex((c) => c.id === active.id);

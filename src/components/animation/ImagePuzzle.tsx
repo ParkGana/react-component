@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type DragEvent } from 'react';
+import { useEffect, useState, type DragEvent } from 'react';
 import ComponentContainer from '../layout/ComponentContainer';
 
 type ImagePuzzleProps = {
@@ -6,24 +6,32 @@ type ImagePuzzleProps = {
 };
 
 const ImagePuzzle = ({ size }: ImagePuzzleProps) => {
-  let moveId: string;
-  let moveSrc: string;
-
   const [randomPuzzle, setRandomPuzzle] = useState<number[]>([]);
+  const [moved, setMovied] = useState({ id: '', src: '' });
 
   useEffect(() => {
+    const generateRandomArray = () => {
+      const arr: number[] = [];
+
+      while (arr.length < size * size) {
+        const random = Math.floor(Math.random() * (size * size)) + 1;
+        if (!arr.includes(random)) arr.push(random);
+      }
+
+      return arr;
+    };
+
     setRandomPuzzle(generateRandomArray());
   }, []);
 
-  /* drag 이벤트 */
+  /* 마우스 Drag 이벤트 */
   const handleDragPiece = (e: DragEvent<HTMLImageElement>) => {
-    moveId = e.currentTarget.id;
-    moveSrc = e.currentTarget.src;
+    setMovied({ id: e.currentTarget.id, src: e.currentTarget.src });
   };
 
-  /* drop 이벤트 */
+  /* 마우스 Drop 이벤트 */
   const handleDropPiece = (e: DragEvent<HTMLImageElement>) => {
-    const move = document.getElementById(moveId);
+    const move = document.getElementById(moved.id);
     const target = document.getElementById(e.currentTarget.id);
 
     const movePiece = move as HTMLImageElement;
@@ -31,21 +39,9 @@ const ImagePuzzle = ({ size }: ImagePuzzleProps) => {
 
     if (movePiece && targetPiece) {
       movePiece.src = e.currentTarget.src;
-      targetPiece.src = moveSrc;
+      targetPiece.src = moved.src;
     }
   };
-
-  /* 랜덤 배열 생성 */
-  const generateRandomArray = useCallback(() => {
-    const arr: number[] = [];
-
-    while (arr.length < size * size) {
-      const random = Math.floor(Math.random() * (size * size)) + 1;
-      if (!arr.includes(random)) arr.push(random);
-    }
-
-    return arr;
-  }, []);
 
   return (
     <ComponentContainer label="IMAGE PUZZLE">
@@ -53,9 +49,9 @@ const ImagePuzzle = ({ size }: ImagePuzzleProps) => {
         {randomPuzzle.map((num) => (
           <img
             key={num}
-            className="w-1/2"
-            src={`/images/puzzle-${num}.png`}
             id={`puzzle-${num}`}
+            src={`/images/puzzle-${num}.png`}
+            className="w-1/2"
             onDragStart={(e) => handleDragPiece(e)}
             onDragOver={(e) => e.preventDefault()}
             onDrop={(e) => handleDropPiece(e)}

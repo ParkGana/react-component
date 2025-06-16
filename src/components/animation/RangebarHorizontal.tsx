@@ -12,8 +12,10 @@ type RangebarHorizontalProps = {
 const RangebarHorizontal = ({ range, value, step, handleMinChange, handleMaxChange }: RangebarHorizontalProps) => {
   const rangeRef = useRef<HTMLDivElement>(null);
 
-  const calculatePercent = (value: number) => ((value - range.min) / (range.max - range.min)) * 100;
+  const minPercent = ((value.min - range.min) / (range.max - range.min)) * 100;
+  const maxPercent = ((value.max - range.min) / (range.max - range.min)) * 100;
 
+  /* 마우스 이벤트 */
   const handleMouseDown = (type: 'min' | 'max') => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!rangeRef.current) return;
@@ -40,13 +42,10 @@ const RangebarHorizontal = ({ range, value, step, handleMinChange, handleMaxChan
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  const minPercent = calculatePercent(value.min);
-  const maxPercent = calculatePercent(value.max);
-
   return (
     <ComponentContainer label="RANGE BAR (H)">
-      <div className=" px-4 py-1">
-        <div ref={rangeRef} className="relative w-full h-6 bg-gray-200 rounded-full">
+      <div className="px-4 py-1">
+        <div ref={rangeRef} className="relative w-full h-6 rounded-full bg-gray-200">
           <div
             className="absolute h-full bg-gray-900"
             style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}

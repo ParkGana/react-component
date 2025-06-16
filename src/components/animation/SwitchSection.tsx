@@ -19,7 +19,7 @@ const SwitchSection = ({ data }: SwitchSectionProps) => {
 
   /* Resize 이벤트 */
   useEffect(() => {
-    const updateSectionHeight = () => {
+    const handleResize = () => {
       const pageList = document.querySelectorAll('.switch-section-page');
       if (pageList) {
         setSectionHeight(pageList[0].clientHeight);
@@ -27,12 +27,12 @@ const SwitchSection = ({ data }: SwitchSectionProps) => {
       }
     };
 
-    updateSectionHeight();
-    window.addEventListener('resize', updateSectionHeight);
-    return () => window.removeEventListener('resize', updateSectionHeight);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  /* Wheel 이벤트 */
+  /* 마우스 Wheel 이벤트 */
   useEffect(() => {
     const pageList = document.querySelectorAll('.switch-section-page');
     if (!pageList) return;
@@ -64,11 +64,11 @@ const SwitchSection = ({ data }: SwitchSectionProps) => {
 
   return (
     <ComponentContainer label="SWITCH SECTION">
-      <div className="w-full aspect-[3/2] relative border-2 border-gray-400 overflow-hidden">
+      <div className="relative w-full aspect-[3/2] border-2 border-gray-400 overflow-hidden">
         <div
-          className="w-full h-full relative transition duration-500"
-          style={{ transform: `translateY(-${translateY}px)` }}
           id="switch-section-container"
+          className="relative w-full h-full transition duration-500"
+          style={{ transform: `translateY(-${translateY}px)` }}
         >
           {data.map((section) => (
             <div

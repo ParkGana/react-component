@@ -14,10 +14,10 @@ const Radio = ({ value, options, handleSelect }: RadioProps) => {
       <div className="flex flex-wrap items-center justify-center gap-4">
         {options.map((option) => (
           <React.Fragment key={option}>
-            <input className="hidden" type="radio" />
+            <input type="radio" className="hidden" />
             <label
-              className="flex items-center gap-1 cursor-pointer"
               htmlFor={option}
+              className="flex items-center gap-1 cursor-pointer"
               onClick={() => handleSelect(option)}
             >
               {value === option ? (

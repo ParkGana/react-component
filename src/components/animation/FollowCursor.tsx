@@ -4,11 +4,10 @@ import ComponentContainer from '../layout/ComponentContainer';
 const FollowCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  /* Mousemove 이벤트 */
+  /* 마우스 Move 이벤트 */
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const container = document.getElementById('follow-cursor-container');
-
       if (container) {
         setPosition({
           x: e.clientX - container.getBoundingClientRect().x,
