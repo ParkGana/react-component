@@ -12,15 +12,20 @@ import CategoryContainer from '../components/layout/CategoryContainer';
 import SortableList from '../components/animation/SortableList';
 import SwitchSection from '../components/animation/SwitchSection';
 import ImagePuzzle from '../components/animation/ImagePuzzle';
+import Search from '../components/basic/Search';
+import { useDebounce } from '../hooks/useDebounce';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
   const [passwordField, setPasswordField] = useState<string>('');
   const [radio, setRadio] = useState<string>('');
+  const [search, setSearch] = useState<string>('');
   const [selectbox, setSelectbox] = useState<string>('');
   const [textField, setTextField] = useState<string>('');
   const [textareaField, setTextareaField] = useState<string>('');
   const [toggleButton, setToggleButton] = useState<'on' | 'off'>('on');
+
+  const debouncedSearch = useDebounce({ value: search, delay: 500 });
 
   const [rangebarHorizontalMin, setRangebarHorizontalMin] = useState<number>(20);
   const [rangebarHorizontalMax, setRangebarHorizontalMax] = useState<number>(80);
@@ -52,6 +57,13 @@ const HomePage = () => {
         />
 
         <Radio value={radio} options={['A', 'B', 'C', 'D']} handleSelect={setRadio} />
+
+        <Search
+          value={search}
+          debouncedValue={debouncedSearch}
+          placeholder="검색어를 입력해 주세요."
+          handleChange={setSearch}
+        />
 
         <Selectbox
           value={selectbox}
