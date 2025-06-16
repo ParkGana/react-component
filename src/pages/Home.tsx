@@ -9,6 +9,7 @@ import ToggleButton from '../components/basic/ToggleButton';
 import RangebarVertical from '../components/animation/rangebar/RangebarVertical';
 import RangebarHorizontal from '../components/animation/rangebar/RangebarHorizontal';
 import CategoryContainer from '../components/layout/CategoryContainer';
+import SortableList from '../components/animation/SortableList';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -23,6 +24,10 @@ const HomePage = () => {
   const [rangebarHorizontalMax, setRangebarHorizontalMax] = useState<number>(80);
   const [rangebarVerticalMin, setRangebarVerticalMin] = useState<number>(20);
   const [rangebarVerticalMax, setRangebarVerticalMax] = useState<number>(80);
+
+  const [sortableList, setSortableList] = useState(
+    [...Array(5)].map((_, index) => ({ id: index, label: `${index + 1}` }))
+  );
 
   const handleKeyDown = (value: string) => {
     window.alert(`value : ${value}`);
@@ -86,6 +91,8 @@ const HomePage = () => {
           handleMinChange={setRangebarVerticalMin}
           handleMaxChange={setRangebarVerticalMax}
         />
+
+        <SortableList data={sortableList} handleSort={setSortableList} />
       </CategoryContainer>
     </>
   );
