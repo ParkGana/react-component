@@ -15,6 +15,8 @@ import ImagePuzzle from '../components/animation/ImagePuzzle';
 import Search from '../components/basic/Search';
 import { useDebounce } from '../hooks/useDebounce';
 import FollowCursor from '../components/animation/FollowCursor';
+import AccordionVertical from '../components/animation/AccordionVertical';
+import AccordionHorizontal from '../components/animation/AccordionHorizontal';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -91,6 +93,22 @@ const HomePage = () => {
       </CategoryContainer>
 
       <CategoryContainer category="ANIMATION">
+        <AccordionHorizontal
+          data={[...Array(3)].map((_, index) => ({
+            id: index,
+            title: `${index + 1}`,
+            contents: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+          }))}
+        />
+
+        <AccordionVertical
+          data={[...Array(3)].map((_, index) => ({
+            id: index,
+            title: `${index + 1}`,
+            contents: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+          }))}
+        />
+
         <FollowCursor />
 
         <ImagePuzzle size={2} />
