@@ -14,6 +14,7 @@ import SwitchSection from '../components/animation/SwitchSection';
 import ImagePuzzle from '../components/animation/ImagePuzzle';
 import Search from '../components/basic/Search';
 import { useDebounce } from '../hooks/useDebounce';
+import FollowCursor from '../components/animation/FollowCursor';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -90,6 +91,8 @@ const HomePage = () => {
       </CategoryContainer>
 
       <CategoryContainer category="ANIMATION">
+        <FollowCursor />
+
         <ImagePuzzle size={2} />
 
         <RangebarHorizontal
