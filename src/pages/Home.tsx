@@ -10,6 +10,7 @@ import RangebarVertical from '../components/animation/RangebarVertical';
 import RangebarHorizontal from '../components/animation/RangebarHorizontal';
 import CategoryContainer from '../components/layout/CategoryContainer';
 import SortableList from '../components/animation/SortableList';
+import SwitchSection from '../components/animation/SwitchSection';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -93,6 +94,8 @@ const HomePage = () => {
         />
 
         <SortableList data={sortableList} handleSort={setSortableList} />
+
+        <SwitchSection data={[...Array(5)].map((_, index) => ({ id: index, label: `${index + 1}` }))} />
       </CategoryContainer>
     </>
   );
