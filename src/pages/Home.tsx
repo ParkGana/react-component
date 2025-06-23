@@ -17,8 +17,11 @@ import { useDebounce } from '../hooks/useDebounce';
 import FollowCursor from '../components/animation/FollowCursor';
 import AccordionVertical from '../components/animation/AccordionVertical';
 import AccordionHorizontal from '../components/animation/AccordionHorizontal';
+import dayjs from 'dayjs';
+import Calendar from '../components/basic/Calendar';
 
 const HomePage = () => {
+  const [calendar, setCalendar] = useState<dayjs.Dayjs>(dayjs());
   const [checkbox, setCheckbox] = useState<string[]>([]);
   const [passwordField, setPasswordField] = useState<string>('');
   const [radio, setRadio] = useState<string>('');
@@ -50,6 +53,8 @@ const HomePage = () => {
   return (
     <>
       <CategoryContainer category="BASIC">
+        <Calendar value={calendar} handleSelect={setCalendar} />
+
         <Checkbox values={checkbox} options={['A', 'B', 'C', 'D']} handleSelect={handleCheckbox} />
 
         <PasswordField
