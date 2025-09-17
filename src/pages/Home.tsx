@@ -20,6 +20,7 @@ import AccordionHorizontal from '../components/animation/AccordionHorizontal';
 import dayjs from 'dayjs';
 import DateField from '../components/basic/DateField';
 import Time from '../components/basic/Time';
+import Weather from '../components/basic/Weather';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -98,6 +99,8 @@ const HomePage = () => {
         <Time />
 
         <ToggleButton value={toggleButton} handleToggle={setToggleButton} />
+
+        <Weather />
       </CategoryContainer>
 
       <CategoryContainer category="ANIMATION">

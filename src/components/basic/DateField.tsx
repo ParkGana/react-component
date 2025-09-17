@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
-import { generateCalendar } from '../../utils/generateCalendar';
+import { generateCalendar } from '../../utils/generateData';
 import clsx from 'clsx';
 import ComponentContainer from '../layout/ComponentContainer';
 import { FaCalendarDays } from 'react-icons/fa6';
