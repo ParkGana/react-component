@@ -19,6 +19,7 @@ import AccordionVertical from '../components/animation/AccordionVertical';
 import AccordionHorizontal from '../components/animation/AccordionHorizontal';
 import dayjs from 'dayjs';
 import DateField from '../components/basic/DateField';
+import Time from '../components/basic/Time';
 
 const HomePage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
@@ -93,6 +94,8 @@ const HomePage = () => {
           placeholder="내용을 입력해 주세요."
           handleChange={setTextareaField}
         />
+
+        <Time />
 
         <ToggleButton value={toggleButton} handleToggle={setToggleButton} />
       </CategoryContainer>
